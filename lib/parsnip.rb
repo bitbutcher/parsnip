@@ -1,4 +1,5 @@
 require 'parsnip/version'
+require 'parsnip/railtie' if defined? Rails
 require 'sinatra/base'
 require 'json'
 require 'nokogiri'
