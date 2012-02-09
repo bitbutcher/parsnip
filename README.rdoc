@@ -1,7 +1,7 @@
 == Welcome to Parsnip
 
 Parsnip is a rack middlware component primarily targeted to Rails 3.x developers
-creating RESTful apis.  Particularly those tired of ActiveSupport::ParamsParser 
+creating RESTful apis.  Particularly those tired of ActionDispatch::ParamsParser 
 spewing internal server errors when clients supply malformed XML or JSON in the 
 body of PUT/POST requests.  Parsnip will find unparsable XML or JSON and return
 response with a status code of 400 and JSON or XML body content describing the 
@@ -16,3 +16,6 @@ applications (verified with Rails 3.2.x).
 1. Add <tt>gem 'parsnip'</tt> to your Gemfile
 
 2. Run <tt>bundle</tt> from your project root
+
+3. Run <tt>rake middleware</tt> from your project root and verify that 
+   Parsnip::Middleware appears before ActionDispatch::ParamsParser
