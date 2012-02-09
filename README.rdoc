@@ -11,6 +11,8 @@ parsing error encountered.
 == Getting Started
 
 Rails: Parsnip uses the railties facility to work as a plug and play gem for Rails
-applications (verifies with Rails 3.2.x). 
+applications (verified with Rails 3.2.x). 
 
 1. Add <tt>gem 'parsnip'</tt> to your Gemfile
+
+2. Run <tt>bundle</tt> from your project root
