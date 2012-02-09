@@ -12,4 +12,5 @@ parsing error encountered.
 
 Rails: Parsnip uses the railties facility to work as a plug and play gem for Rails
 applications (verifies with Rails 3.2.x). 
-Simply add <tt>gem 'parsnip'<tt> to your Gemfile
+
+1. Add <tt>gem 'parsnip'</tt> to your Gemfile
