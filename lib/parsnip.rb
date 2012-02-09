@@ -8,6 +8,10 @@ module Parsnip
 
   class Middleware < Sinatra::Base
 
+    disable :show_exceptions
+
+    enable :raise_errors
+
     post '*' do
       parse_nip(request) || pass
     end
@@ -30,7 +34,7 @@ module Parsnip
     def json_nip(body)
       JSON.parse(body) and nil
     rescue JSON::ParserError => e
-      nip({ error: e.to_s }.to_json, 'application/json')
+      nip({ error: e.to_s }.to_json, 'application/json; charset=utf-8')
     end
 
     def xml_nip(body)
@@ -39,7 +43,7 @@ module Parsnip
       error = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do | xml |
         xml.error e.to_s
       end
-      nip(error.to_xml, 'application/xml')
+      nip(error.to_xml, 'application/xml; charset=utf-8')
     end
 
     def nip(body, type)

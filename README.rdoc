@@ -1,0 +1,15 @@
+== Welcome to Parsnip
+
+Parsnip is a rack middlware component primarily targeted to Rails 3.x developers
+creating RESTful apis.  Particularly those tired of ActiveSupport::ParamsParser 
+spewing internal server errors when clients supply malformed XML or JSON in the 
+body of PUT/POST requests.  Parsnip will find unparsable XML or JSON and return
+response with a status code of 400 and JSON or XML body content describing the 
+parsing error encountered.
+
+
+== Getting Started
+
+Rails: Parsnip uses the railties facility to work as a plug and play gem for Rails
+applications (verifies with Rails 3.2.x). 
+Simply add <tt>gem 'parsnip'<tt> to your Gemfile
