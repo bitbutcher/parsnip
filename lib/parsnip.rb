@@ -20,6 +20,10 @@ module Parsnip
       parse_nip(request) || pass
     end
 
+    patch '*' do
+      parse_nip(request) || pass
+    end
+
     private
 
     def parse_nip(request)
