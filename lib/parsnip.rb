@@ -38,14 +38,16 @@ module Parsnip
     def json_nip(body)
       JSON.parse(body) and nil
     rescue JSON::ParserError => e
-      nip({ error: e.to_s }.to_json, 'application/json; charset=utf-8')
+      nip({ errors: [ e.to_s ] }.to_json, 'application/json; charset=utf-8')
     end
 
     def xml_nip(body)
       (Nokogiri::XML(body) { | config | config.strict }) and nil
     rescue Nokogiri::XML::SyntaxError => e
       error = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do | xml |
-        xml.error e.to_s
+        xml.errors {
+          xml.error e.to_s
+        }
       end
       nip(error.to_xml, 'application/xml; charset=utf-8')
     end
