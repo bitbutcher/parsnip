@@ -27,6 +27,7 @@ module Parsnip
     private
 
     def parse_nip(request)
+      return unless request.content_type
       case request.content_type.downcase
       when /json/
         with_rewind(request) { |body| json_nip(body) }
